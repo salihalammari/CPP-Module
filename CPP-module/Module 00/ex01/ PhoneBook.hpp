@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:04:09 by slammari          #+#    #+#             */
-/*   Updated: 2022/07/23 10:36:23 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/16 01:47:03 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,28 @@
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-#include <iostream>
 #include "Contact.hpp"
+#include <iomanip>
 
-class PhoneBook
-{
-    private:
-        Contact contacts[8];
-    public:
-        int     n_contact;
-        int     add_contact();
-        void    rm_oldest();
-        int     Add();
-        void    print_table();
-        void    Search(int i);
-        int     print_phbook();
+class	PhoneBook {
 
-        PhoneBook();
-        ~PhoneBook();
+private:
+	Contact	contact[8];
+	int	contact_num;
+	int	get_user_search_index();
+	Contact	get_user_contact();
+	void	show_contact_info(int index);
+	void	show_contact_header();
+	void	show_contact_fields(std::string field);
+	void	show_contact(int index);
+
+public:
+	PhoneBook();
+	int	get_contact_num();
+	void	add_contact();
+	void	search_contact();
+	~PhoneBook();
+
 };
 
 #endif

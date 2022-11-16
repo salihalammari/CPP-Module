@@ -6,131 +6,135 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:04:05 by slammari          #+#    #+#             */
-/*   Updated: 2022/07/23 10:37:12 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/16 01:46:59 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(){n_contact = 0;}
-PhoneBook::~PhoneBook(){std::cout << "thela...\n";}
-
-// add Contactsd
-
-int PhoneBook::Add()
+PhoneBook::PhoneBook() : contact_num(0)
 {
-    if (n_contact < 8)
-	{
-		if(add_contact())
-			return (1);
-		n_contact++;
-	}
-	else
-	{
-		rm_oldest();
-		if(add_contact())
-			return (1);
-		n_contact++;
-	}
-	return (0);
 }
 
-int PhoneBook::add_contact()
+PhoneBook::~PhoneBook()
 {
-	std::cout  <<"ADD A NEW CONTACT" <<  std::endl;
-	std::cout  << "First Name : " << std::endl;
-	if (!(std::cin >> contacts[n_contact].f_name))
-        return (1);
-	std::cout << "Last Name : " << std::endl;
-	if (!(std::cin >> contacts[n_contact].l_name))
-        return (1);
-	std::cout << "Nick Name : " << std::endl;
-	if(!(std::cin >> contacts[n_contact].nick_name))
-        return (1);
-	std::cout <<"Phone Number : " << std::endl;
-	if(!(std::cin >> contacts[n_contact].ph_number))
-        return (1);
-    std::cout << "Darkest secret : " << std::endl;
-	if(!(std::cin >> contacts[n_contact].d_secret))
-        return (1);
-	std::cout << contacts[n_contact].f_name << " Contact has been Added." << std::endl;
-	return (0);
 }
 
-void PhoneBook::rm_oldest()
+int		PhoneBook::get_contact_num()
 {
-    int x = 1;
-    while (x < n_contact)
-    {
-        contacts[x - 1] = contacts[x];
-        x++;
-    }
-    n_contact--;
+	return this->contact_num;
 }
 
-// display a contact
-
-void PhoneBook::Search(int i)
+Contact	PhoneBook::get_user_contact()
 {
-	if(i < n_contact && i >= 0)
-	{
-		std::cout << "First Name : " << contacts[i].f_name << std::endl;
-		std::cout << "Last Name : " << contacts[i].l_name << std::endl;
-		std::cout << "Nick Name : " << contacts[i].nick_name << std::endl;
-		std::cout << "Phone Number : " << contacts[i].ph_number << std::endl;
-		std::cout << "Darkest secret :  " << contacts[i].d_secret << std::endl;
-	}
-	else
-		std::cout << "Wrong Index" << std::endl;
-}
-//  print contact 
+	std::string	fields_name[5];
+	std::string	add_fields[5];
 
-std::string check_l(std::string str)
-{
-	if (str.length() >= 10)
-	{
-		str = str.substr(0, 9);
-		str += ".";
-	}
-	return (str);
-}
+	fields_name[0] = "first_name     : ";
+	fields_name[1] = "last_name      : ";
+	fields_name[2] = "nickname       : ";
+	fields_name[3] = "phone_number   : ";
+	fields_name[4] = "darkest secret : ";
 
-void PhoneBook::print_table()
-{
-    int i;
+	std::cout << "###############" << std::endl;
+	std::cout << "# ADD Contact #" << std::endl;
+	std::cout <<"###############"  << std::endl;
 	
-	i = 0;
-	std::cout <<" -------------------------------------------"  << std::endl;
-	std::cout <<"|"  << "   Index  ";
-	std::cout <<"|"  << "FirstName ";
-	std::cout <<"|"  << " LastName ";
-	std::cout <<"|"  << " NickName ";
-	std::cout <<"|" << std::endl;
-    while(i < n_contact)
+	int	i = 0;
+	std::cout << fields_name[i];
+	while (i < 5 && std::getline(std::cin, add_fields[i]))
 	{
-		std::cout <<" -------------------------------------------"  << std::endl;
-		std::cout <<"|"  << "     " << i + 1 << "    ";
-		std::cout <<"|"  << std::setw(10) << check_l(contacts[i].f_name);
-		std::cout <<"|"  << std::setw(10) << check_l(contacts[i].l_name);
-		std::cout <<"|"  << std::setw(10) << check_l(contacts[i].nick_name);
-		std::cout <<"|"  << std::endl;
-		i++;
+		if (i >= 4)
+			break;
+		std::cout << fields_name[++i];
+	}
+	return Contact(add_fields[0], add_fields[1], add_fields[2], add_fields[3], add_fields[4]);
+}
+
+void	PhoneBook::add_contact()
+{
+	Contact contact = get_user_contact();
+
+	if (this->contact_num < 8)
+	{
+		this->contact[this->contact_num] = contact;
+		this->contact_num++;
+		std::cout << "Added a contact to index number " << this->contact_num
+			<< ". (" << this->contact_num << "/8)" << std::endl;
+	}
+	else
+	{
+		for (int i = 1; i < 8; i++)
+			this->contact[i - 1] = this->contact[i];
+		this->contact[7] = contact;
+		std::cout << "The storage space is full. Deleted the oldest saved contact. (8/8)" << std::endl;
 	}
 }
-int PhoneBook::print_phbook()
-{
-	int	index;
 
-	index = 0;
-	print_table();
-	std::cout <<"Put the index of the name : ";
-	std::cin >> index;
-	if(std::cin.eof())
-		return (1);
-	else
-		Search(index - 1);
-	return (0);
+void	PhoneBook::show_contact_header()
+{
+	std::cout << "=====================================================" << std::endl;
+	std::cout << "|      index | first name |  last name |   nickname |" << std::endl;
+	std::cout << "=====================================================" << std::endl;
 }
 
+void	PhoneBook::show_contact_info(int index)
+{
+	Contact	contact = this->contact[index];
 
+	std::cout << "|          " << index << " |";
+	show_contact_fields(contact.get_first_name());
+	show_contact_fields(contact.get_last_name());
+	show_contact_fields(contact.get_nickname());
+	std::cout << std::endl << "-----------------------------------------------------" << std::endl;
+}
+
+void	PhoneBook::show_contact_fields(std::string field)
+{
+	if (field.length() <= 10)
+		std::cout << std::setw(11) << field << " |";
+	else
+		std::cout << " " << field.substr(0, 9) << ". |";
+}
+
+int	PhoneBook::get_user_search_index()
+{
+	std::string	str_index;
+	int			index = 0;
+
+	std::cout << "##################" << std::endl;
+	std::cout << "# SEARCH Contact #" << std::endl;
+	std::cout <<"##################"  << std::endl;
+	show_contact_header();
+	for (int i = 0; i < get_contact_num(); i++)
+		show_contact_info(i);
+	std::cout << "Enter the index number : ";
+	if (std::getline(std::cin, str_index))
+		index = atoi(str_index.c_str());
+	return index;
+}
+
+void	PhoneBook::show_contact(int index)
+{
+	if (index < 0 || index >= this->contact_num)
+	{
+		std::cout << "Either the contact is not stored in this index, or the index value or format is invalid." << std::endl;
+	}
+	else
+	{
+		std::cout<< "#####################################################" << std::endl;
+		std::cout<< "#             Contact stored in index " << index << "             #" << std::endl;
+		std::cout<< "#####################################################" << std::endl;
+		show_contact_header();
+		show_contact_info(index);
+	}
+}
+
+void	PhoneBook::search_contact()
+{
+	int index = get_user_search_index();
+	
+	show_contact(index);
+	return;
+}

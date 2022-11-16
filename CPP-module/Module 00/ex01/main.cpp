@@ -6,39 +6,39 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:04:15 by slammari          #+#    #+#             */
-/*   Updated: 2022/07/24 10:03:59 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/16 01:47:09 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-int main()
+int	main()
 {
 	std::string	command;
-	PhoneBook phonebook;
+	PhoneBook	phone_book = PhoneBook();
 
-	std::cout << "ADD Contact   : ADD" << std::endl;	
-	std::cout << "Search Contact : SEARCH" << std::endl;
-	std::cout << "tfi dow      : EXIT" << std::endl;
-	while(1337)
+	std::cout << "My Awesome Phonebook %> ";
+	while (std::getline(std::cin, command))
 	{
-		std::cin >> command;
-		if (std::cin.eof())
-			return (1);
-		else if (command == "ADD")
-		{	
-			if(phonebook.Add())
-				return (1);
-		}
-		else if(command == "SEARCH")
+		if (command == "EXIT")
 		{
-			if(phonebook.print_phbook())
-				return (1);
+			std::cout << "exit" << std::endl;
+			break;
 		}
-		else if(command == "EXIT" )
-			return (0);
-		else
-			std::cout << "wrong command : " << command << std::endl;	
+		else if (command == "ADD")
+		{
+			phone_book.add_contact();
+		}
+		else if (command == "SEARCH")
+		{
+			phone_book.search_contact();
+		}
+		else if (command != "")
+		{
+			std::cout << C_YLLW << "It's not a valid command: " 
+					<< C_NRML << command << std::endl;
+		}
+		std::cout << "My Awesome Phonebook %> ";
 	}
-	return (0);
+	return 0;
 }
