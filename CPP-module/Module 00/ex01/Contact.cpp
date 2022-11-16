@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 22:39:52 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/16 01:47:05 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:44:08 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,21 @@ Contact::Contact(std::string first_name,
 	this->nickname = nickname;
 	this->phone_number = phone_number;
 	this->darkest_secret = darkest_secret;
+}
+
+int	Contact::check_empty()
+{
+	if (this->first_name.empty() == true)
+		return (1);
+	if (this->last_name.empty() == true)
+		return (1);
+	if (this->nickname.empty() == true)
+		return (1);
+	if (this->phone_number.empty() == true)
+		return (1);
+	if (this->darkest_secret.empty() == true)
+		return (1);
+	return (0);
 }
 
 Contact::Contact()

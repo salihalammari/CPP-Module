@@ -1,19 +1,20 @@
-NAME = My awesome
+NAME = PhoneBook
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 SRCS =  main.cpp\
-		phonebook.cpp\
+		PhoneBook.cpp\
+		Contact.cpp\
 
 OBJT = $(SRCS:.cpp=.o)
 
-
-$(NAME): $(OBJT)
+INC = PhoneBook.hpp Contact.hpp
+$(NAME): $(OBJT) $(INC)
 	$(CC) $(OBJT) $(FLAGS) -o $(NAME)
 
-$(OBJT): $(SRCS)
-	$(CC) $(FLAGS) -c  $(SRCS)
+# $(OBJT): $(SRCS)
+# 	$(CC) $(FLAGS) (SRCS) -c $(OBJT)
 
 all : $(NAME)
 clean:

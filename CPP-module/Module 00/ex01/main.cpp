@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:04:15 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/16 01:47:09 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:26:43 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ int	main()
 		}
 		else if (command != "")
 		{
-			std::cout << C_YLLW << "It's not a valid command: " 
-					<< C_NRML << command << std::endl;
+			std::cout << "It's not a valid command: " 
+					<< command << std::endl;
 		}
 		std::cout << "My Awesome Phonebook %> ";
 	}

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*    PhoneBook.cpp                                     :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:04:05 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/16 01:46:59 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:48:20 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,12 @@ void	PhoneBook::add_contact()
 {
 	Contact contact = get_user_contact();
 
+	if (contact.check_empty() == 1)
+	{
+		std::cout << "Contact can't have a empty field" << std::endl;
+		return ;
+	}
+	
 	if (this->contact_num < 8)
 	{
 		this->contact[this->contact_num] = contact;
@@ -135,6 +141,6 @@ void	PhoneBook::search_contact()
 {
 	int index = get_user_search_index();
 	
-	show_contact(index);
+	show_contact(index - 1);
 	return;
 }
