@@ -5,40 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/20 16:04:15 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/18 00:22:43 by slammari         ###   ########.fr       */
+/*   Created: 2022/11/17 21:21:24 by slammari          #+#    #+#             */
+/*   Updated: 2022/11/18 05:02:11 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "Zombie.hpp"
 
 int	main()
 {
-	std::string	command;
-	PhoneBook	phone_book = PhoneBook();
+	Zombie zombieStack = Zombie("stack");
+	Zombie *zombieHeap = new Zombie("heap");
+	Zombie *zombieNew = newZombie("newZombie");
 
-	std::cout << "My Awesome Phonebook %> ";
-	while (std::getline(std::cin, command))
-	{
-		if (command == "EXIT")
-		{
-			std::cout << "exit" << std::endl;
-			break;
-		}
-		else if (command == "ADD")
-		{
-			phone_book.add_contact();
-		}
-		else if (command == "SEARCH")
-		{
-			phone_book.search_contact();
-		}
-		// else if (command != "")
-		// {
-		// 	std::cout << "It's not a valid command: " 
-		// 			<< command << std::endl;
-		// }
-		std::cout << "My Awesome Phonebook %> ";
-	}
-	return 0;
+	zombieStack.announce();
+	zombieHeap->announce();
+	zombieNew->announce();
+	randomChump("randomChump");
+	delete zombieHeap;
 }

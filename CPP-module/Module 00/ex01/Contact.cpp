@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 22:39:52 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/16 15:44:08 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/18 00:34:45 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,14 @@ std::string	Contact::get_last_name()
 std::string	Contact::get_nickname()
 {
 	return this->nickname;
+}
+
+std::string	Contact::get_phone_number()
+{
+	return this->phone_number;
+}
+
+std::string	Contact::get_darkest_secret()
+{
+	return this->darkest_secret;
 }

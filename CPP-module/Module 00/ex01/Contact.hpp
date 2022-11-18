@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 11:34:41 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/16 15:43:35 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/18 00:27:37 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ class Contact
         std::string get_first_name();
         std::string get_last_name();
         std::string get_nickname();
+        std::string get_phone_number();
+        std::string get_darkest_secret();
         int    check_empty();
         ~Contact();
         
