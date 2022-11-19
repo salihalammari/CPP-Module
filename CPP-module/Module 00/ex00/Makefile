@@ -4,7 +4,7 @@ CPPFILES = megaphone.cpp
 
 CPPOBJ = $(CPPFILES:%.cpp=%.o)
 
-CC = clang++
+CC = c++
 
 CPPFLAGS = -std=c++98 -Wall -Werror -Wextra
 
