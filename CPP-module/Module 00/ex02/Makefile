@@ -6,4 +6,16 @@ SOURCE = account.cpp
 HEADER = Account.hpp
 OBJECT = $(SOURCE:.cpp=.o)
 
-$(NAME):
+$(NAME): $(CPPOBJ)
+	$(CC) $(CPPFLAGS) $(CPPOBJ) -o $(NAME)
+
+%.o:%.cpp
+	$(CC) $(CPPFLAGS) -c $< -o $@
+
+clean:
+	rm -rf $(CPPOBJ)
+
+fclean: clean
+	rm -rf $(NAME)
+
+re: fclean $(NAME)
