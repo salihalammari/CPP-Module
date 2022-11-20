@@ -56,7 +56,7 @@ void	PhoneBook::add_contact()
 {
 	Contact contact = get_user_contact();
 
-	if (contact.check_empty() == 1)
+		if (contact.check_empty() == 1)
 	{
 		std::cout << "Contact can't have a empty field" << std::endl;
 		return ;
