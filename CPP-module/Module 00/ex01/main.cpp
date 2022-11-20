@@ -33,11 +33,11 @@ int	main()
 		{
 			phone_book.search_contact();
 		}
-		// else if (command != "")
-		// {
-		// 	std::cout << "It's not a valid command: " 
-		// 			<< command << std::endl;
-		// }
+		else if (command != "")
+		{
+			std::cout << "It's not a valid command: " 
+					<< command << std::endl;
+		}
 		std::cout << "My Awesome Phonebook %> ";
 	}
 	return 0;

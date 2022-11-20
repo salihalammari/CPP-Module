@@ -1,19 +1,18 @@
 NAME = account
-CC = c++
-CPPFLAGS = -Wall -Wextra -Werror
-MAIN = tests.cpp
-SOURCE = account.cpp 
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror
+SOURCE = Account.cpp tests.cpp
 HEADER = Account.hpp
-OBJECT = $(SOURCE:.cpp=.o)
+CXXOBJ = $(SOURCE:.cpp=.o)
 
-$(NAME): $(CPPOBJ)
-	$(CC) $(CPPFLAGS) $(CPPOBJ) -o $(NAME)
+$(NAME): $(CXXOBJ)
+	$(CC) $(CXXFLAGS) $(CXXOBJ) -o $(NAME)
 
 %.o:%.cpp
-	$(CC) $(CPPFLAGS) -c $< -o $@
+	$(CC) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(CPPOBJ)
+	rm -rf $(CXXOBJ)
 
 fclean: clean
 	rm -rf $(NAME)

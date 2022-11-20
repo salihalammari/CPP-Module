@@ -66,14 +66,14 @@ void	PhoneBook::add_contact()
 	{
 		this->contact[this->contact_num] = contact;
 		this->contact_num++;
+		this->size++;
 		std::cout << "Added a contact to index number " << this->contact_num
 			<< ". (" << this->contact_num << "/8)" << std::endl;
 	}
 	else
 	{
-		for (int i = 1; i < 8; i++)
-			this->contact[i - 1] = this->contact[i];
-		this->contact[7] = contact;
+		this->contact[this->size % 8] = contact;
+		this->size++;
 		std::cout << "The storage space is full. Deleted the oldest saved contact. (8/8)" << std::endl;
 	}
 }
@@ -89,7 +89,7 @@ void	PhoneBook::show_contact_info(int index)
 {
 	Contact	contact = this->contact[index];
 
-	std::cout << "|" << std::setw(10) << index + 1 << "|";
+	std::cout << "|" << std::setw(10) << index << "|";
 	show_contact_fields(contact.get_first_name());
 	show_contact_fields(contact.get_last_name());
 	show_contact_fields(contact.get_nickname());
@@ -144,6 +144,6 @@ void	PhoneBook::search_contact()
 {
 	int index = get_user_search_index();
 	
-	show_contact(index - 1);
+	show_contact(index);
 	return;
 }

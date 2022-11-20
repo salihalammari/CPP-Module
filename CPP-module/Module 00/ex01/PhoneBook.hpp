@@ -22,6 +22,7 @@ class	PhoneBook {
 private:
 	Contact	contact[8];
 	int	contact_num;
+	int size = 0;
 	int	get_user_search_index();
 	Contact	get_user_contact();
 	void	show_contact_info(int index);
