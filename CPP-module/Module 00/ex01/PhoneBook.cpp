@@ -6,14 +6,14 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:04:05 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/18 00:56:13 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/21 23:34:31 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook() : contact_num(0)
+PhoneBook::PhoneBook() : contact_num(0) , size(0)
 {
 }
 
@@ -56,13 +56,14 @@ void	PhoneBook::add_contact()
 {
 	Contact contact = get_user_contact();
 
-		if (contact.check_empty() == 1)
+	if (contact.check_empty() == 1)
 	{
-		std::cout << "Contact can't have a empty field" << std::endl;
+		if (std::cin.eof() != true)
+			std::cout << "Contact can't have a empty field" << std::endl;
 		return ;
 	}
 	
-	if (this->contact_num < 8)
+	else if (this->contact_num < 8)
 	{
 		this->contact[this->contact_num] = contact;
 		this->contact_num++;
@@ -107,7 +108,7 @@ void	PhoneBook::show_contact_fields(std::string field)
 int	PhoneBook::get_user_search_index()
 {
 	std::string	str_index;
-	int			index = 1;
+	int			index = -1;
 
 	std::cout << "##################" << std::endl;
 	std::cout << "# SEARCH Contact #" << std::endl;
@@ -117,7 +118,9 @@ int	PhoneBook::get_user_search_index()
 		show_contact_info(i);
 	std::cout << "Enter the index number : ";
 	if (std::getline(std::cin, str_index))
-		index = atoi(str_index.c_str());
+		if (str_index.length() == 1)
+			if (str_index[0] >= '0' && str_index[0] <= '7')
+				index = atoi(str_index.c_str());
 	return index;
 }
 

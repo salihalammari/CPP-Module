@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:04:09 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/16 15:25:54 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/21 23:34:35 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class	PhoneBook {
 private:
 	Contact	contact[8];
 	int	contact_num;
-	int size = 0;
+	int size;
 	int	get_user_search_index();
 	Contact	get_user_contact();
 	void	show_contact_info(int index);

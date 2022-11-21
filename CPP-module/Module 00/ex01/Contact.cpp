@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 22:39:52 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/18 00:34:45 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/21 22:52:15 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	Contact::check_empty()
 
 Contact::Contact()
 {
-	Contact("", "", "", "", "");
 }
 
 Contact::~Contact()

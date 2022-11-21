@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:04:15 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/18 00:22:43 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/21 23:18:32 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main()
 {
 	std::string	command;
-	PhoneBook	phone_book = PhoneBook();
+	PhoneBook	phone_book;
 
 	std::cout << "My Awesome Phonebook %> ";
 	while (std::getline(std::cin, command))
@@ -33,12 +33,9 @@ int	main()
 		{
 			phone_book.search_contact();
 		}
-		else if (command != "")
-		{
-			std::cout << "It's not a valid command: " 
-					<< command << std::endl;
-		}
-		std::cout << "My Awesome Phonebook %> ";
+		if (std::cin.eof() != true)
+			std::cout << "My Awesome Phonebook %> ";
+		
 	}
 	return 0;
 }

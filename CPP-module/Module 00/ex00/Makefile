@@ -1,21 +1,21 @@
 NAME = megaphone
 
-CPPFILES = megaphone.cpp 
+CXXFILES = megaphone.cpp 
 
-CPPOBJ = $(CPPFILES:%.cpp=%.o)
+CXXOBJ = $(CXXFILES:%.cpp=%.o)
 
-CC = c++
+CXX = c++
 
-CPPFLAGS = -std=c++98 -Wall -Werror -Wextra
+CXXFLAGS = -std=c++98 -Wall -Werror -Wextra
 
-$(NAME):$(CPPOBJ)
-	$(CC) $(CPPFLAGS) $(CPPOBJ) -o $(NAME)
+$(NAME):$(CXXOBJ)
+	$(CXX) $(CXXFLAGS) $(CXXOBJ) -o $(NAME)
 
 %.o:%.cpp
-	$(CC) $(CPPFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(CPPOBJ)
+	rm -rf $(CXXOBJ)
 
 fclean: clean
 	rm -rf $(NAME)
