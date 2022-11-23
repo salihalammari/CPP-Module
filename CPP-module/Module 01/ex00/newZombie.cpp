@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 21:20:56 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/18 03:37:00 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/23 19:56:29 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,6 @@
 Zombie* newZombie( std::string name )
 {
 	return new Zombie(name);
+	
 }
+ 

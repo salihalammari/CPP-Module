@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 20:52:02 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/18 05:21:21 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/23 20:02:45 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ZOMBIE_HPP
 
 #include <iostream>
+
 
 class Zombie 
 {

@@ -1,9 +1,9 @@
-NAME = Human
+NAME = 
 CXX = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 MAIN = main.cpp
-SOURCE = HumanB.cpp HumanA.cpp Weapon.cpp
-HEADER = Weapon.hpp HumanA.hpp HumanA.hpp
+SOURCE = 
+HEADER = 
 
 OBJECT = $(SOURCE:.cpp=.o)
 

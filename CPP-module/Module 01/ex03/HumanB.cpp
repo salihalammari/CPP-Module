@@ -6,8 +6,27 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 05:26:43 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/18 05:26:44 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/24 00:24:56 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include ""
+#include "HumanB.hpp"
+
+
+HumanB::HumanB(std::string name) : name(name), weapon(NULL)
+{
+}
+
+void    HumanB::attack()
+{
+	std::cout << this->name << " attacks with his " << this->weapon->getType() << std::endl;
+}
+
+void    HumanB::setWeapon(Weapon &weapon)
+{
+	this->weapon = &weapon;
+}
+
+HumanB::~HumanB()
+{
+}

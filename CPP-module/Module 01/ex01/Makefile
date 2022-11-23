@@ -1,16 +1,17 @@
-NAME = Zombies
-CC = clang++
+NAME = Zombie
+CXX = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 MAIN = main.cpp
 SOURCE = Zombie.cpp ZombieHorde.cpp
 HEADER = Zombie.hpp
+
 OBJECT = $(SOURCE:.cpp=.o)
 
 $(NAME): $(MAIN) $(OBJECT)
-  $(CC) $(NAME) $(CFLAGS) -O $(NAME) $(OBJECT)
+		$(CXX) $(CFLAGS) $(MAIN) -o $(NAME) $(OBJECT)
   
 $(OBJECT): $(SOURCE) $(HEADER)
-  $(CC) $(CFLAGS) -c $(SOURCE)
+		$(CXX) $(CFLAGS) -c $(SOURCE)
 
 all : $(NAME)
 clean:

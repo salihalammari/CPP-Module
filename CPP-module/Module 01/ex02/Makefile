@@ -1,12 +1,15 @@
 NAME = brain
-CC = clang++
-CPPFLAGS = -Wextra -Wall -Werror -std=c++98
+CXX = c++
+CXXFLAGS = -Wextra -Wall -Werror -std=c++98
 MAIN = main.cpp
 
-$(NAME):$(CPPOBJ)
-	$(CC) $(CPPFLAGS) $(CPPOBJ) -o $(NAME)
+OBJ = $(SOURCE:.cpp=.o)
 
-
+$(NAME): $(MAIN) $(CPPOBJ)
+		$(CXX) $(CXXFLAGS) $(MAIN) $(OBJ) -o $(NAME)
+		  
+$(OBJ): $(SOURCE) $(HEADER)
+		$(CXX) $(CXXFLAGS) -c $(SOURCE)
 
 clean:
 	rm -rf $(CPPOBJ)

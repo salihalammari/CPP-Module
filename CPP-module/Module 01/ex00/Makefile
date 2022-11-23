@@ -1,7 +1,7 @@
 NAME = Zombie
 
-CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 MAIN = main.cpp
 RM = rm -f
 SRCS = 	Zombie.cpp\
@@ -13,10 +13,10 @@ HEADER = Zombie.hpp
 OBJT = $(SRCS:.cpp=.o)
 
 $(NAME): $(MAIN) $(OBJT)
-	$(CC) $(MAIN) $(FLAGS) -o $(NAME) $(OBJT) 
+	$(CXX) $(CXXFLAGS) $(MAIN) -o $(NAME) $(OBJT) 
 
 $(OBJT): $(SRCS) $(HEADER)
-	$(CC) $(FLAGS) -c $(SRCS)
+	$(CXX) $(CXXFLAGS) -c $(SRCS)
 
 all : $(NAME)
 clean:
