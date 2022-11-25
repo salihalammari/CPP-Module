@@ -10,3 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
+#include "Point.hpp"
+
+bool bsp(const Point a, const Point b, const Point c, const Point point);
+
+int main(void)
+{
+	Point a(10, 0);
+    Point b(0, 0);
+    Point c(0, 10);
+    Point p(0, 0);
+
+    if (bsp(a, b, c, p) == true)
+        std::cout << "\033[32mTRUE\033[0m" << std::endl;
+    else
+        std::cout << "\033[31mFALSE\033[0m" << std::endl;
+    return (0);
+}
