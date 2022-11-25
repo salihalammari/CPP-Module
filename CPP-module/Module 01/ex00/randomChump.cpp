@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 21:21:12 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/18 05:21:11 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/25 02:23:40 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void    randomChump(std::string name)
 {
-    Zombie zombie = Zombie(name);
+    Zombie zombie(name);
 
     zombie.announce();
 }
