@@ -12,61 +12,49 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 
-void	replacestring(std::string line, std::string &rtr, std::string s1, std::string s2)
+void transform(std::string& line, std::string const& s_find, std::string const& s_replace)
 {
-	std::size_t	pos = 0;
-	
-	pos = line.find(s1, pos);
-	if (pos != 0)
-		rtr.append(line, 0, pos);
-	rtr.append(s2);
-	pos += s1.length();
-	line.erase(0, pos);
-	if (line.find(s1) == std::string::npos)
+	std::string::size_type pos;
+
+	pos = line.find(s_find);
+	while (pos != std::string::npos)
 	{
-		rtr.append(line);
-		return ;
+		line.erase(pos, s_find.length());
+		line.insert(pos, s_replace);
+		pos = line.find(s_find, pos + s_replace.length());
 	}
-	else
-		replacestring(line, rtr, s1, s2);
 }
 
-int	main(int argc, char **argv)
+void replace(std::string const& filename, std::string const& s_find, std::string const& s_replace)
 {
-	std::string filename;
-	std::string s1;
-	std::string s2;
+	std::ifstream in(filename);
+	std::ofstream out(filename + ".replace", std::ofstream::out | std::ofstream::trunc);
 	std::string line;
-	std::string rtr;
-	size_t		start_pos = 0;
 
-	if (argc != 4)
-		return (0);
-	filename = argv[1];
-	s1 = argv[2];
-	s2 = argv[3];
-
-	std::ifstream fin(filename);
-	std::ofstream fout(filename + ".replace");
-    if (fin.fail())
+	if (!in || !out)
 	{
-		std::cerr << "Error: No '" << filename << "' found" << std::endl;
-		return (1);
-	}	
-	while (!fin.eof())
-	{
-		std::getline(fin, line);
-		if (line.find(s1, start_pos) == std::string::npos)
-			fout << line;
-		else
-		{
-			replacestring(line, rtr, s1, s2);
-			fout << rtr;
-			rtr.clear();
-		}
-		if (!fin.eof())
-			fout << std::endl;
+		if (in)
+			in.close();
+		else if (out)
+			out.close();
+		std::cerr << "Error : open fail" << std::endl;
+		return ;
 	}
-	return 0;
+	while (std::getline(in, line))
+	{
+		transform(line, s_find, s_replace);
+		out << line << std::endl;
+	}
+	in.close();
+	out.close();
+}
+
+int main(int argc, char **argv)
+{
+	if (argc != 4)
+		std::cout << "Usage : ./replace [File name] [Str1] [Str2]" << std::endl;
+	else
+		replace(argv[1], argv[2], argv[3]);
 }
