@@ -25,7 +25,7 @@ void transform(std::string& line, std::string const& s_find, std::string const& 
 		line.insert(pos, s_replace);
 		pos = line.find(s_find, pos + s_replace.length());
 	}
-}
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 
 void replace(std::string const& filename, std::string const& s_find, std::string const& s_replace)
 {
