@@ -12,49 +12,67 @@
 
 #include <iostream>
 #include <fstream>
-#include <string>
 
-void transform(std::string& line, std::string const& s_find, std::string const& s_replace)
+std::string replace(std::string s1, std::string s2, std::string line)
 {
-	std::string::size_type pos;
+    int i;
 
-	pos = line.find(s_find);
-	while (pos != std::string::npos)
-	{
-		line.erase(pos, s_find.length());
-		line.insert(pos, s_replace);
-		pos = line.find(s_find, pos + s_replace.length());
-	}
-}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
-
-void replace(std::string const& filename, std::string const& s_find, std::string const& s_replace)
-{
-	std::ifstream in(filename);
-	std::ofstream out(filename + ".replace", std::ofstream::out | std::ofstream::trunc);
-	std::string line;
-
-	if (!in || !out)
-	{
-		if (in)
-			in.close();
-		else if (out)
-			out.close();
-		std::cerr << "Error : open fail" << std::endl;
-		return ;
-	}
-	while (std::getline(in, line))
-	{
-		transform(line, s_find, s_replace);
-		out << line << std::endl;
-	}
-	in.close();
-	out.close();
+    if (s1.empty() == true)
+        return line;
+    i = line.find(s1);
+    while (i != std::string::npos)
+    {
+    	line.erase(i, s1.length());
+        line.insert(i, s2);
+        i = line.find(s1, i + s2.length());
+    }
+    return line;
 }
 
-int main(int argc, char **argv)
+int main(int ac, char **av)
 {
-	if (argc != 4)
-		std::cout << "Usage : ./replace [File name] [Str1] [Str2]" << std::endl;
-	else
-		replace(argv[1], argv[2], argv[3]);
+    if (ac < 4)
+    {
+        std::cout << "you entred less than three arguments." << std::endl;
+        return (1);
+    }
+    else if (ac > 4)
+    {
+        std::cout << "you entred more than three arguments." << std::endl;
+        return (1);
+    }
+    std::string filename = av[1];
+    std::string s1 = av[2];
+    std::string s2 = av[3];
+    std::string line;
+    std::ifstream infile;
+    std::ofstream outfile;
+
+    infile.open(filename, std::ios::in);
+    if (infile.is_open() == true)
+    {
+        outfile.open(filename + ".replace", std::ios::out | std::ios::trunc);
+        if (outfile.is_open() == true)
+        {
+            while (std::getline(infile, line))
+            {
+                line = my_replace(s1, s2, line);
+                outfile << line << std::endl;
+            }
+            outfile.close();
+        }
+        else
+        {
+            std::perror("outfile error.");
+            infile.close();
+            return (1);
+        }
+        infile.close();
+    }
+    else
+    {
+        std::perror("infile error.");
+        return (1);
+    }
+    return (0);
 }
