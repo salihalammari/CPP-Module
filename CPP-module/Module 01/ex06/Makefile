@@ -4,12 +4,13 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 SRCS = main.cpp Harl.cpp
+
 OBJT = $(SRCS:.cpp=.o)
 
 $(NAME): $(MAIN) $(OBJT)
-	$(CXX) $(MAIN) $(CXXFLAGS) -o $(NAME) $(OBJT)
+		$(CXX) $(MAIN) $(CXXFLAGS) -o $(NAME) $(OBJT)
 $(OBJT): $(SRCS)
-	$(CXX) $(CXXFLAGS) -c $(SRCS)
+		$(CXX) $(CXXFLAGS) -c $(SRCS)
 
 all : $(NAME)
 clean:
