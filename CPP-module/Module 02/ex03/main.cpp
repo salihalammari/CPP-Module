@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 05:07:28 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/25 05:07:29 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/29 18:29:34 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int main(void)
     Point p(0, 0);
 
     if (bsp(a, b, c, p) == true)
-        std::cout << "\033[32mTRUE\033[0m" << std::endl;
+        std::cout << " TRUE " << std::endl;
     else
-        std::cout << "\033[31mFALSE\033[0m" << std::endl;
+        std::cout << " FALSE " << std::endl;
     return (0);
 }

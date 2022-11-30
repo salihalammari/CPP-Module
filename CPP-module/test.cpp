@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 19:01:45 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/21 22:49:35 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:26:24 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,26 +36,57 @@
 //     return 0;
 // }/* just learn */
 
-using namespace std;
-class test {
+// using namespace std;
+// class test {
+//     public:
+//         test() {
+//             cout << "test default constructor\n";
+//         }
+//         test(int i) {
+//             cout << "test int constructor\n";
+//         }
+//         ~test() {
+//             cout << "test destructor\n";
+//         }
+// };
+
+// int main () {
+    
+//     {
+//         test obj(10);
+        
+//     }
+//     cout << "here\n";
+
+// }
+
+// std::ifstream fin(filename);
+
+
+class Myclass
+{
+    private:
+        std::string name;
     public:
-        test() {
-            cout << "test default constructor\n";
-        }
-        test(int i) {
-            cout << "test int constructor\n";
-        }
-        ~test() {
-            cout << "test destructor\n";
-        }
+       // Myclass();
+        void setname(std::string name);
+        std::string getname();
+       // ~Myclass();
 };
 
-int main () {
-    
-    {
-        test obj(10);
-        
-    }
-    cout << "here\n";
+void Myclass::setname(std::string name)
+{
+     this->name = name; 
+}
 
+std::string Myclass::getname()
+{
+       return this->name; 
+}
+int main()
+{
+    Myclass Myobj;
+    Myobj.setname("saliha");
+    std::cout << Myobj.getname() << std::endl;
+    return 0;
 }

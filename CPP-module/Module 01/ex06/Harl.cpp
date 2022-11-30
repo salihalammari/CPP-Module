@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 04:55:09 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/28 06:21:09 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/29 16:22:42 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	Harl::complain( std::string level )
 		case 0:
 			std::cout << "[ NONE! ]" << std::endl <<
 			"Probably complaining about insignificant problems." << std::endl;
-			break;	
+			break;
 		case 1:
 			(this->*funcs[0])();
 			i++;

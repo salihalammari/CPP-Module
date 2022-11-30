@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 05:14:33 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/25 05:14:34 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/30 12:27:57 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Fixed
 	public:
 		Fixed( void );
 		~Fixed( void );
-		Fixed(const Fixed& src); //복사생성자
-		Fixed &operator=(const Fixed &src); //할당생성자오버로딩
+		Fixed(const Fixed& src);
+		Fixed &operator=(const Fixed &src);
 
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );

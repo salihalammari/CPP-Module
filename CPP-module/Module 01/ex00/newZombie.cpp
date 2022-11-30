@@ -6,14 +6,13 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 21:20:56 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/28 07:48:07 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/29 16:24:08 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie* newZombie( std::string name )
+Zombie* newZombie(std::string name )
 {
 	return new Zombie(name);
 }
- 
