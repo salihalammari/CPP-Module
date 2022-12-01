@@ -6,11 +6,13 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 05:06:07 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/29 18:28:45 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/01 03:48:56 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+const int Fixed::fractional_bits = 8;
 
 Fixed::Fixed( void )
 {
@@ -60,62 +62,70 @@ void Fixed::setRawBits( int const raw )
 
 float Fixed::toFloat( void ) const
 {
-	return ((float)this->value / (1 << 8));
+	return ((float)this->value / (1 << fractional_bits));
 }
 
 int Fixed::toInt( void ) const
 {
-	return (this->value >> 8);
-}
+	return (this->value > 0 ? 1 : -1)*(abs(this->value) >> fractional_bits);
+} 
 
-bool Fixed::operator>(const Fixed &src)
+bool Fixed::operator>(const Fixed &src) const
 {
 	return (this->value > src.value);
 }
 
-bool Fixed::operator>=(const Fixed &src)
+bool Fixed::operator>=(const Fixed &src) const
 {
 	return (this->value >= src.value);
 }
 
-bool Fixed::operator<(const Fixed &src)
+bool Fixed::operator<(const Fixed &src) const
 {
 	return (this->value < src.value);
 }
 
-bool Fixed::operator<=(const Fixed &src)
+bool Fixed::operator<=(const Fixed &src) const
 {
 	return (this->value <= src.value);
 }
 
-bool Fixed::operator==(const Fixed &src)
+bool Fixed::operator==(const Fixed &src) const
 {
 	return (this->value == src.value);
 }
 
-bool Fixed::operator!=(const Fixed &src)
+bool Fixed::operator!=(const Fixed &src) const
 {
 	return (this->value != src.value);
 }
 
-Fixed Fixed::operator+(const Fixed &src)
+Fixed Fixed::operator+(const Fixed &src) const
 {
-	return (Fixed(this->toFloat() + src.toFloat()));
+	Fixed f;
+	f.setRawBits(this->value + src.value);
+	return (f);
 }
 
-Fixed Fixed::operator-(const Fixed &src)
+Fixed Fixed::operator-(const Fixed &src) const
 {
-	return (Fixed(this->toFloat() - src.toFloat()));
+	Fixed f;
+	f.setRawBits(this->value - src.value);
+	return (f);
 }
 
-Fixed Fixed::operator*(const Fixed &src)
+Fixed Fixed::operator*(const Fixed &src) const
 {
-	return (Fixed(this->toFloat() * src.toFloat()));
+	Fixed f;
+	f.setRawBits(((long long)this->value * src.value )>> fractional_bits);
+	return (f);
 }
 
-Fixed Fixed::operator/(const Fixed &src)
+Fixed Fixed::operator/(const Fixed &src) const
 {
-	return (Fixed(this->toFloat() / src.toFloat()));
+	Fixed f;
+	f.setRawBits(((long long)this->value << fractional_bits ) / src.value );
+	return (f);
 }
 
 Fixed& Fixed::operator++()
@@ -152,7 +162,24 @@ const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
 		return (b);
 }
 
+Fixed &Fixed::max(Fixed &a, Fixed &b)
+{
+	if ((Fixed)a > (Fixed)b)
+		return (a);
+	else
+		return (b);
+}
+
+
 const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
+{
+	if ((Fixed)a < (Fixed)b)
+		return (a);
+	else
+		return (b);
+}
+
+Fixed &Fixed::min( Fixed &a, Fixed &b)
 {
 	if ((Fixed)a < (Fixed)b)
 		return (a);

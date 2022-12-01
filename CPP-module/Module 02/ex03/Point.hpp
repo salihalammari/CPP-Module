@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 05:07:35 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/29 18:28:59 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/30 20:29:07 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 #define POINT_HPP
 
 #include <iostream>
+#include <cmath>
 #include "Fixed.hpp"
+
 
 class Point{
     private:

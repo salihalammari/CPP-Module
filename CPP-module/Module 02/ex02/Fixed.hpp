@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 05:06:07 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/29 18:28:47 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/01 03:48:22 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Fixed
 {
 	private:
 		int					value;
-		static const int	fractional_bits= 8;
+		 const static int	fractional_bits;
 	public:
 		Fixed( void );
 		~Fixed( void );
@@ -32,23 +32,24 @@ class Fixed
 		float toFloat( void ) const;
 		int toInt( void ) const;
 
-		bool operator>(const Fixed &src);
-		bool operator<(const Fixed &src);
-		bool operator>=(const Fixed &src);
-		bool operator<=(const Fixed &src);
-		bool operator==(const Fixed &src);
-		bool operator!=(const Fixed &src);
-		Fixed operator+(const Fixed &src);
-		Fixed operator-(const Fixed &src);
-		Fixed operator*(const Fixed &src);
-		Fixed operator/(const Fixed &src);
+		bool operator>(const Fixed &src) const;
+		bool operator<(const Fixed &src) const;
+		bool operator>=(const Fixed &src) const;
+		bool operator<=(const Fixed &src) const;
+		bool operator==(const Fixed &src) const;
+		bool operator!=(const Fixed &src) const;
+		Fixed operator+(const Fixed &src) const;
+		Fixed operator-(const Fixed &src) const;
+		Fixed operator*(const Fixed &src) const;
+		Fixed operator/(const Fixed &src) const;
 		Fixed& operator++(); // pre-increment ++a
 		Fixed& operator--(); // pre-decrement --a
 		Fixed operator++(int); // post-increment a++
 		Fixed operator--(int); // post-decrement a--
 		static const Fixed &max(const Fixed &a, const Fixed &b);
 		static const Fixed &min(const Fixed &a, const Fixed &b);
-		
+		static Fixed &max( Fixed &a, Fixed &b);
+		static Fixed &min( Fixed &a, Fixed &b);
 };
 std::ostream &operator<<(std::ostream &out, const Fixed &src);
 

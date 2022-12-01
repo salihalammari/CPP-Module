@@ -6,7 +6,19 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:03:12 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/30 12:03:13 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/30 18:28:36 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+# ifndef ANIMAL_HPP
+# define ANIMAL_HPP
+#include <iostream>
+
+class Animal
+{
+    
+}
+
+
+
+#endif

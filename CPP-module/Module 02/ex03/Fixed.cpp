@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 05:07:24 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/29 18:28:53 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/01 03:24:51 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ const int Fixed::n_bit = 8;
 
 Fixed::Fixed()
 {
-    this->vf = 0;
+    this->value = 0;
 }
 
 Fixed::Fixed(const int i)
 {
-    this->vf = i << this->n_bit;
+    this->value = i << this->n_bit;
 }
 
 Fixed::Fixed(const float f)
 {
-    this->vf = roundf(f * (1 << this->n_bit));
+    this->value = roundf(f * (1 << this->n_bit));
 }
 
 Fixed::Fixed(const Fixed &copy)
@@ -40,101 +40,117 @@ Fixed::~Fixed(){}
 Fixed &Fixed::operator=(const Fixed &src)
 {
     if (this != &src)
-        this->vf = src.getRawBits();
+        this->value= src.getRawBits();
     return (*this);
 }
 
-bool Fixed::operator>(const Fixed fixed)const
+
+bool Fixed::operator>(const Fixed &src) const
 {
-    return (this->toFloat() > fixed.toFloat());
+	return (this->value > src.value);
 }
 
-bool Fixed::operator<(const Fixed fixed) const
+bool Fixed::operator>=(const Fixed &src) const
 {
-    return (this->toFloat() < fixed.toFloat());
+	return (this->value >= src.value);
 }
 
-bool Fixed::operator>=(const Fixed fixed) const
+bool Fixed::operator<(const Fixed &src) const
 {
-    return (this->toFloat() >= fixed.toFloat());
+	return (this->value < src.value);
 }
 
-bool Fixed::operator<=(const Fixed fixed) const
+bool Fixed::operator<=(const Fixed &src) const
 {
-    return (this->toFloat() <= fixed.toFloat());
+	return (this->value <= src.value);
 }
 
-bool Fixed::operator==(const Fixed fixed) const
+bool Fixed::operator==(const Fixed &src) const
 {
-    return (this->toFloat() == fixed.toFloat());
+	return (this->value == src.value);
 }
 
-bool Fixed::operator!=(const Fixed fixed) const
+bool Fixed::operator!=(const Fixed &src) const
 {
-    return (this->toFloat() != fixed.toFloat());
+	return (this->value != src.value);
 }
 
-float Fixed::operator+(const Fixed fixed) const
+Fixed Fixed::operator+(const Fixed &src) const
 {
-    return (this->toFloat() + fixed.toFloat());
+	Fixed f;
+	f.setRawBits(this->value + src.value);
+	return (f);
 }
 
-float Fixed::operator-(const Fixed fixed) const
+Fixed Fixed::operator-(const Fixed &src) const
 {
-    return (this->toFloat() - fixed.toFloat());
+	Fixed f;
+	f.setRawBits(this->value - src.value);
+	return (f);
 }
 
-float Fixed::operator*(const Fixed fixed) const
+Fixed Fixed::operator*(const Fixed &src) const
 {
-    return (this->toFloat() * fixed.toFloat());
+	Fixed f;
+	f.setRawBits(((long long)this->value * src.value )>> n_bit);
+	return (f);
 }
 
-float Fixed::operator/(const Fixed fixed) const
+Fixed Fixed::operator/(const Fixed &src) const
 {
-    return (this->toFloat() / fixed.toFloat());
+	Fixed f;
+	f.setRawBits(((long long)this->value << n_bit) / src.value );
+	return (f);
+}
+
+Fixed Fixed::operator/(const Fixed &src) const
+{
+	Fixed f;
+	f.setRawBits(((long long)this->value << n_bit) / src.value );
+	return (f);
 }
 
 Fixed Fixed::operator++()
 {
-    this->vf++;
+    this->value++;
     return (*this);
 }
 
 Fixed Fixed::operator--()
 {
-    this->vf--;
+    this->value--;
     return (*this);
 }
 
 Fixed Fixed::operator++(int)
 {
     Fixed copy = *this;
-    ++this->vf;
+    ++this->value;
     return (copy);
 }
 
 Fixed Fixed::operator--(int)
 {
     Fixed copy = *this;
-    --this->vf;
+    --this->value;
     return (copy);
 }
 
 int Fixed::getRawBits( void ) const{
-    return (this->vf);
+    return (this->value);
 }
 
 void Fixed::setRawBits( int const raw )
 {
-    this->vf = raw;
+    this->value= raw;
 }
 
 float Fixed::toFloat( void )const{
-    return ((float)this->vf / (float)(1 << this->n_bit));
+    return ((float)this->value / (float)(1 << this->n_bit));
 }
 
 int Fixed::toInt( void )const{
-    return (this->vf >> this->n_bit);
+    return (this->value >> this->n_bit);
 }
 
 Fixed &Fixed::min(Fixed &first, Fixed &second)

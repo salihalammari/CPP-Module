@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 05:02:27 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/30 12:59:25 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/01 03:27:12 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Fixed
 {
 	private:
 		int					value;
-		static const int	fractional_bits= 8;
+		static const int	fractional_bits = 8;
 	public:
 		Fixed( void );
 		~Fixed( void );

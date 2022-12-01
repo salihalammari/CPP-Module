@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 05:02:24 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/29 18:28:35 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/01 03:17:51 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@ void Fixed::setRawBits( int const raw )
 
 float Fixed::toFloat( void ) const
 {
-	return ((float)this->value / (1 << 8));
+	return ((float)this->value / (1 << fractional_bits));
 }
 
 int Fixed::toInt( void ) const
 {
-	return (this->value >> 8);
+	return (this->value >> fractional_bits);
 }

@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 05:07:26 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/29 18:28:54 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/01 03:22:57 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 #define FIXED_HPP
 
 #include <iostream>
+#include <cmath>
 
 class Fixed{
     private:
-            int vf;
+            int value;
             const static int n_bit;
     public:
             Fixed();
@@ -25,20 +26,21 @@ class Fixed{
             Fixed(const float f);
             Fixed(const Fixed &copy);
             Fixed &operator=(const Fixed &src);
-            bool operator>(const Fixed fixed) const;
-            bool operator<(const Fixed fixed) const;
-            bool operator>=(const Fixed fixed) const;
-            bool operator<=(const Fixed fixed) const;
-            bool operator==(const Fixed fixed) const;
-            bool operator!=(const Fixed fixed) const;
-            float operator+(const Fixed fixed) const;
-            float operator-(const Fixed fixed) const;
-            float operator*(const Fixed fixed) const;
-            float operator/(const Fixed fixed) const;
-            Fixed operator++();
-            Fixed operator--();
-            Fixed operator++(int);
-            Fixed operator--(int);
+            bool operator>(const Fixed &src) const;
+	    bool operator<(const Fixed &src) const;
+	    bool operator>=(const Fixed &src) const;
+	    bool operator<=(const Fixed &src) const;
+	    bool operator==(const Fixed &src) const;
+	    bool operator!=(const Fixed &src) const;
+	    Fixed operator+(const Fixed &src) const;
+            Fixed operator-(const Fixed &src) const;
+	    Fixed operator*(const Fixed &src) const;
+	    Fixed operator/(const Fixed &src) const;
+            Fixed& operator++(); // pre-increment ++a
+	    Fixed& operator--(); // pre-decrement --a
+	    Fixed operator++(int); // post-increment a++
+	    Fixed operator--(int); // post-decrement a--
+            
             ~Fixed();
             static Fixed &min(Fixed &first, Fixed &second);
             static const Fixed &min(Fixed const &first, Fixed const &second);

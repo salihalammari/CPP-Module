@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 04:55:06 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/29 16:22:54 by slammari         ###   ########.fr       */
+/*   Updated: 2022/11/30 13:54:41 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int	main()
 {
 	Harl Harl;
 
-	Harl.complain("DEBUG");
 	Harl.complain("INFO");
-	Harl.complain("WARNING");
-	Harl.complain("ERROR");
-	Harl.complain("asd");
+	// Harl.complain("INFO");
+	// Harl.complain("WARNING");
+	// Harl.complain("ERROR");
+	// Harl.complain("asd");
 }
