@@ -2,22 +2,20 @@ NAME = claptrap
 CXX = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS =	main.cpp ClapTrap.cpp
+SRCS =	main.cpp ClapTrap.cpp FragTrap.cpp
 
-OBJS = $(SRCS:.cpp=.o)
+OBJT = $(SRCS:.cpp=.o)
 
-all: $(NAME)
+$(NAME): $(MAIN) $(OBJT)
+	$(CXX) $(MAIN) $(CXXFLAGS) -o $(NAME) $(OBJT)
+$(OBJT): $(SRCS)
+	$(CXX) $(CXXFLAGS) -c $(SRCS)
 
-$(NAME) : $(OBJS)
-		$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-
-
+all : $(NAME)
 clean:
-		rm -rf $(OBJS)
+	$(RM) $(NAME)
+fclean:
+	$(RM) $(OBJT) $(NAME) replace
+re:	clean all
 
-fclean: clean
-		rm -f $(NAME)
-
-re:
-		$(MAKE) fclean
-		$(MAKE) all
+.PHONY: all fclean clean re

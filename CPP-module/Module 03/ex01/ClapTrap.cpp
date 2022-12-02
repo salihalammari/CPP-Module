@@ -91,7 +91,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (!is_alive())
+	if (_ep <= 0)
 		return ;
 	_hp += amount;
 	_ep--;

@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 21:59:42 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/01 21:59:43 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/03 00:23:54 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,3 @@ void ScavTrap::guardGate(void)
 	else
 		std::cout << "ScavTrap " << _name << " cannot enter Gate keeper mode because " << _name << " is dead!" << std::endl;
 }
-

@@ -1,20 +1,21 @@
-NAME = scavtrap
+NAME =  DiamondTrap
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS =	main.cpp ClapTrap.cpp ScavTrap.cpp
+SRCS =	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
-OBJS = $(SRCS:.cpp=.o)
+OBJT = $(SRCS:.cpp=.o)
 
-all: $(NAME)
+$(NAME): $(MAIN) $(OBJT)
+	$(CXX) $(MAIN) $(CXXFLAGS) -o $(NAME) $(OBJT)
+$(OBJT): $(SRCS)
+	$(CXX) $(CXXFLAGS) -c $(SRCS)
 
-$(NAME) : $(OBJS)
-		@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+all : $(NAME)
 clean:
-		@rm -rf $(OBJS)
-fclean: clean
-		@rm -f $(NAME)
+	$(RM) $(NAME)
+fclean:
+	$(RM) $(OBJT) $(NAME) replace
+re:	clean all
 
-re:
-		@$(MAKE) fclean
-		@$(MAKE) all
+.PHONY: all fclean clean re
