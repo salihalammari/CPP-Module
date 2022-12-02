@@ -43,11 +43,10 @@ void replace(std::string namefile, std::fstream &file, std::string s1, std::stri
         }
         newfile << str << std::endl;
     }
-    
+}
 
 int main(int ac, char **av)
 {
-
     std::fstream file;
     if (ac == 4)
     {
