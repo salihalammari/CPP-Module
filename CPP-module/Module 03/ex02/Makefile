@@ -1,8 +1,8 @@
 NAME = Fragtrap
-CC = c++
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS =	main.cpp ClapTrap.cpp ScavTrap.cpp
+SRCS =	main.cpp ClapTrap.cpp ScavTrap.cpp Fragtrap.cpp
 
 OBJT = $(SRCS:.cpp=.o)
 
@@ -12,10 +12,11 @@ $(OBJT): $(SRCS)
 	$(CXX) $(CXXFLAGS) -c $(SRCS)
 
 all : $(NAME)
+
 clean:
-	$(RM) $(NAME)
+	$(RM) $(OBJT)
 fclean:
-	$(RM) $(OBJT) $(NAME) replace
-re:	clean all
+	$(RM) $(OBJT) $(NAME)
+re:	fclean all
 
 .PHONY: all fclean clean re

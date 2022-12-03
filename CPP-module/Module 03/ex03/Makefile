@@ -13,9 +13,9 @@ $(OBJT): $(SRCS)
 
 all : $(NAME)
 clean:
-	$(RM) $(NAME)
+	$(RM) $(OBJT)
 fclean:
-	$(RM) $(OBJT) $(NAME) replace
-re:	clean all
+	$(RM) $(OBJT) $(NAME)
+re:	fclean all
 
 .PHONY: all fclean clean re

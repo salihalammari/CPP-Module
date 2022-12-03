@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 21:59:42 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/02 22:44:40 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/03 03:44:33 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,6 @@ void ScavTrap::attack(const std::string& target)
 		<< ", causing " << _ad << " points of damage!" << std::endl;
 	_ep--;
 	std::cout << "ScavTrap " << _name << "'s remaining energy point : " << _ep << std::endl;
-}
-
-void ScavTrap::takeDamage(unsigned int amount)
-{
-	if (guard_mode)
-		std::cout << "ScavTrap " << _name << " can't be attacked because it is in Gate keeper mode!" << std::endl;
-	else
-		ClapTrap::takeDamage(amount);
 }
 
 void ScavTrap::guardGate(void)

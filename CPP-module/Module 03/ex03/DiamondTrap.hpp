@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 20:32:48 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/02 20:32:49 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/03 04:11:00 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ public :
 	DiamondTrap& operator=(const DiamondTrap& diamond);
 
 	void attack(const std::string& target);
+    // using	ScavTrap::attack;
 	void whoAmI(void) const;
 };
 

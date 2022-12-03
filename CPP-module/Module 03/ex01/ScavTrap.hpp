@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 21:58:42 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/01 21:58:43 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/03 05:10:47 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ public :
 	ScavTrap& operator=(const ScavTrap& scav);
 
 	void attack(const std::string& target);
-	void takeDamage(unsigned int amount);
 	void guardGate(void);
 };
 
