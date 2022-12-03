@@ -11,26 +11,30 @@
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
-	ScavTrap def;
+	ClapTrap def;
 	ScavTrap s1("Scav1");
-	ScavTrap s2("Scav2");
+	FragTrap f1("Frag1");
 
 	std::cout << std::endl;
-	s1.attack("Scav2");
-	s2.takeDamage(s1.getAd());
+	s1.attack("Frag1");
+	f1.takeDamage(s1.getAd());
+	std::cout << std::endl;
+	
+	s1.guardGate();
 	std::cout << std::endl;
 
-	s2.beRepaired(10);
+	f1.attack("Scav1");
+	s1.takeDamage(f1.getAd());
 	std::cout << std::endl;
-	
-	s2.guardGate();
+
+	def.beRepaired(100);
 	std::cout << std::endl;
-	
-	def.attack("Scav2");
-	s2.takeDamage(def.getAd());
+
+	f1.highFivesGuys();
 	std::cout << std::endl;
 	
 	return 0;
