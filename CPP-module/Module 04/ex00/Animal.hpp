@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:03:12 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/30 18:28:36 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/04 02:46:50 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Animal
         std::string _type;
     public :
         Animal(void);
-        Animal(connst Animal& a);
+        Animal(const Animal& a);
         virtual ~Animal(void);
         Animal& operator=(const Animal& type);
 

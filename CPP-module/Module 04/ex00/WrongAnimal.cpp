@@ -49,3 +49,4 @@ void WrongAnimal::makeSound(void) const
 {
 	std::cout << "WrongAnimal Sound : ?" << std::endl;
 }
+ 
