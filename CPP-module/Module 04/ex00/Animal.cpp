@@ -6,11 +6,11 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:03:14 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/04 02:46:44 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/04 03:03:30 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Animal.hpp"
+#include "Animal.hpp"
 
 Animal::Animal(void)
 {

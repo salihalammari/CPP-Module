@@ -5,10 +5,11 @@ CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRCS =	main.cpp Animal.cpp WrongAnimal.cpp Dog.cpp Cat.cpp WrongCat.cpp
 
-OBJS = $(SRCS:.cpp=.o)
+OBJT = $(SRCS:.cpp=.o)
 
 $(NAME): $(OBJT)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJT)
+	$(CXX) $(CXXFLAGS) $(OBJT) -o $(NAME)
+
 $(OBJT): $(SRCS)
 	$(CXX) $(CXXFLAGS) -c $(SRCS)
 
@@ -16,8 +17,8 @@ all : $(NAME)
 
 clean:
 	$(RM) $(OBJT)
-fclean:
-	$(RM) $(OBJT) $(NAME)
+fclean: clean
+	$(RM) $(NAME)
 re:	fclean all
 
 .PHONY: all fclean clean re

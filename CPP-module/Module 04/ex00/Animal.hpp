@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:03:12 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/04 02:46:50 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/04 03:02:08 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ANIMAL_HPP
 
 #include <iostream>
+#include <string>
 
 class Animal
 {
@@ -27,7 +28,7 @@ class Animal
 
         void setType(const std::string& type);
         std::string getType(void) const;
-        virtual void makesound(void) const;
+        virtual void makeSound(void) const;
 };
 
 #endif
