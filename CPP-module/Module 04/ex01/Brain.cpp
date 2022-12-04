@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:03:22 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/04 04:44:20 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/04 20:45:28 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,8 @@ std::string Brain::getIdea(const int i) const
 
 void Brain::setIdea(const int i, const std::string& idea)
 {
-	_ideas[i] = idea;
+	if (i > 100) 
+		return ;
+	else
+		_ideas[i] = idea; // TODO : should be protected !
 }
