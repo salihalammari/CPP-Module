@@ -1,16 +1,24 @@
 NAME = amateria
-CC = c++
-CFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address
+CXX = c++
+RM = rm -rf
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 
 
 SRCS =	main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 
-OBJS = $(SRCS:.cpp=.o)
+OBJT = $(SRCS:.cpp=.o)
 
-$(NAME) : $(OBJS)
-		@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+$(NAME): $(OBJT)
+	$(CXX) $(CXXFLAGS) $(OBJT) -o $(NAME) 
+	
+$(OBJT): $(SRCS)
+	$(CXX) $(CXXFLAGS) -c $(SRCS)
+
+all : $(NAME)
 
 clean:
-		@rm -rf $(OBJS)
-
+	$(RM) $(OBJT)
 fclean: clean
-		@rm -f $(NAME)
+	$(RM) $(NAME)
+re:	fclean all
+
+.PHONY: all fclean clean re

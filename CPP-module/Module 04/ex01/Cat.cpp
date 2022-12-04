@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:03:29 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/04 03:47:16 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/04 05:16:24 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,9 @@ Cat& Cat::operator=(const Cat& c)
 void Cat::makeSound(void) const
 {
 	std::cout << "Cat Sound : Meow~ Meow~" << std::endl;
+}
+
+Brain* Cat::getBrain(void) const
+{
+	return _brain;
 }
