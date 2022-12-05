@@ -23,6 +23,7 @@ Animal::Animal(const Animal& a) : _type(a.getType())
 	std::cout << "Animal copy constructor called" << std::endl;
 }
 
+
 Animal::~Animal(void)
 {
 	std::cout << "Animal destructor called" << std::endl;

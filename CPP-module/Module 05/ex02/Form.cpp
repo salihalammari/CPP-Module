@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/03 23:18:28 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/03 23:18:29 by slammari         ###   ########.fr       */
+/*   Created: 2022/12/03 23:19:57 by slammari          #+#    #+#             */
+/*   Updated: 2022/12/03 23:19:58 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,16 @@ const char* Form::GradeTooHighException::what(void) const throw()
 const char* Form::GradeTooLowException::what(void) const throw()
 {
 	return "Grade too low!!";
+}
+
+const char* Form::NotSignedException::what(void) const throw()
+{
+	return "Form not signed!!";
+}
+
+const char* Form::FileErrorException::what(void) const throw()
+{
+	return "File error!!";
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& f)
