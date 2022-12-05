@@ -1,7 +1,7 @@
 NAME = amateria
 CXX = c++
 RM = rm -rf
-HEADERS =  AMateria.hpp Character.hpp Cure.hpp Ice.hpp MateriaSource.hpp
+HEADERS =  AMateria.hpp Character.hpp Cure.hpp Ice.hpp MateriaSource.hpp ICharacter.hpp 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98 
 
 SRCS =	main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp

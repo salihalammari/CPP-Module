@@ -1,6 +1,6 @@
 NAME = Animal
 CXX = c++
-
+RM = rm -rf
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 HEADERS = Animal.hpp WrongAnimal.hpp Dog.hpp Cat.hpp WrongCat.hpp

@@ -1,7 +1,7 @@
 
 NAME = abstract
-
 CXX = c++
+RM = rm -rf
 
 HEADERS = Animal.hpp WrongAnimal.hpp Dog.hpp Cat.hpp WrongCat.hpp Brain.hpp
 

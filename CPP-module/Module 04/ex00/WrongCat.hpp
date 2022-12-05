@@ -20,7 +20,7 @@ class WrongCat : public WrongAnimal
 public :
 	WrongCat(void);
 	WrongCat(const WrongCat& wc);
-	virtual ~WrongCat(void);
+	~WrongCat(void);
 	WrongCat& operator=(const WrongCat& wc);
 
 	void makeSound(void) const;
