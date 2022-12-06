@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                          :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/03 23:20:00 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/06 05:39:23 by slammari         ###   ########.fr       */
+/*   Created: 2022/12/03 23:20:30 by slammari          #+#    #+#             */
+/*   Updated: 2022/12/06 05:43:57 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Form_HPP
-#define Form_HPP
+#ifndef FORM_HPP
+#define FORM_HPP
 
 #include "Bureaucrat.hpp"
 
@@ -67,3 +67,5 @@ public :
 std::ostream& operator<<(std::ostream& os, const Form& f);
 
 #endif
+
+
