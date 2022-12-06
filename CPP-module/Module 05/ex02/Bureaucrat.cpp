@@ -6,18 +6,20 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 23:20:02 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/03 23:20:03 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/06 05:07:21 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Bureaucrat::Bureaucrat(void) {}
+Bureaucrat::Bureaucrat(void) :_name("unnamed"), _grade(GRADE_MIN)
+{
+}
 
 Bureaucrat::~Bureaucrat(void) {}
 
-Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(grade)
+Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name), _grade(grade)
 {
 	if (_grade < GRADE_MAX)
 		throw Bureaucrat::GradeTooHighException();
@@ -37,13 +39,13 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& b)
 {
 	if (this != &b)
 	{
-		*const_cast<std::string*>(&_name) = b.getName();
+		const_cast<std::string&>(_name) = b.getName();
 		_grade = b.getGrade();
 	}
 	return *this;
 }
 
-const std::string Bureaucrat::getName(void) const
+const std::string& Bureaucrat::getName(void) const
 {
 	return _name;
 }
@@ -67,7 +69,7 @@ void Bureaucrat::decrementGrade(void)
 	_grade++;
 }
 
-void Bureaucrat::signForm(Form &f) const
+void Bureaucrat::signForm(AForm &f) const
 {
 	try
 	{
@@ -81,7 +83,7 @@ void Bureaucrat::signForm(Form &f) const
 	}
 }
 
-void Bureaucrat::executeForm(const Form& f) const
+void Bureaucrat::executeForm(const AForm& f) const
 {
 	try
 	{

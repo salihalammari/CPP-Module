@@ -6,23 +6,23 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 23:20:11 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/03 23:20:12 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/06 05:05:03 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(void) : Form() {}
+PresidentialPardonForm::PresidentialPardonForm(void) : AForm() {}
 
 PresidentialPardonForm::~PresidentialPardonForm(void) {}
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : Form(target, 25, 5) {}
+PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : AForm(target, 25, 5) {}
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& p) : Form(p) {}
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& p) : AForm(p) {}
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& p)
 {
-	Form::operator=(p);
+	AForm::operator=(p);
 	return *this;
 }
 

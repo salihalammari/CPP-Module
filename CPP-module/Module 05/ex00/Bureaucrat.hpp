@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 23:18:23 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/03 23:18:24 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/06 04:29:28 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ private :
 	
 public :
 	Bureaucrat(void);
-	Bureaucrat(const std::string name, int grade);
+	Bureaucrat(const std::string& name, int grade);
 	Bureaucrat(const Bureaucrat& b);
 	~Bureaucrat(void);
 	Bureaucrat& operator=(const Bureaucrat& b);
 
-	const std::string getName(void) const;
+	const std::string& getName(void) const;
 	int getGrade(void) const;
 	void incrementGrade(void);
 	void decrementGrade(void);

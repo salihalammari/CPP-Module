@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 23:18:33 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/03 23:18:34 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/06 04:03:36 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int main(void)
 
 	try
 	{
-
 		std::cout << "=========Test 1=========" << std::endl;
 		b1.decrementGrade();
 		std::cout << b1 << std::endl;
@@ -70,6 +69,30 @@ int main(void)
 		std::cout << "=========Test 4=========" << std::endl;
 		b4.decrementGrade();
 		std::cout << b4 << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+
+	try
+	{
+		std::cout << "=========Test 5=========" << std::endl;
+		Bureaucrat b6("b6", 151);
+		b6.decrementGrade(); // will never reach this
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+
+	try
+	{
+		std::cout << "=========Test 6=========" << std::endl;
+		Bureaucrat b7("b7", -99);
+		b7.decrementGrade(); // will never reach this
 	}
 	catch(const std::exception& e)
 	{

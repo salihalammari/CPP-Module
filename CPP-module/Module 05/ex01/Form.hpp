@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 23:18:31 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/03 23:18:32 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/06 04:55:39 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ public :
 	~Form(void);
 	Form& operator=(const Form& f);
 
-	const std::string getName(void) const;
+	const std::string& getName(void) const;
 	bool getSigned(void) const;
 	int getGradeSign(void) const;
 	int getGradeExec(void) const;
@@ -42,3 +42,13 @@ public :
 	public :
 		const char* what(void) const throw();
 	};
+
+	class GradeTooLowException : public std::exception
+	{
+	public :
+		const char* what(void) const throw();
+	};
+};
+std::ostream& operator<<(std::ostream& o, const Form& f);
+
+#endif

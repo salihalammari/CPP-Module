@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 23:20:23 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/03 23:20:24 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/06 05:08:33 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include <fstream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class ShrubberyCreationForm : public Form
+class ShrubberyCreationForm : public AForm
 {
 private :
 	ShrubberyCreationForm(void);

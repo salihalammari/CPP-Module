@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 23:20:18 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/03 23:20:19 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/06 05:08:08 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 #include <cstdlib>
 #include <ctime>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class RobotomyRequestForm : public Form
+class RobotomyRequestForm : public AForm
 {
 private :
 	RobotomyRequestForm(void);

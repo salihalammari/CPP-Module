@@ -6,23 +6,23 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 23:20:16 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/03 23:20:17 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/06 05:08:17 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(void) : Form() {}
+RobotomyRequestForm::RobotomyRequestForm(void) : AForm() {}
 
 RobotomyRequestForm::~RobotomyRequestForm(void) {}
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : Form(target, 72, 45) {}
+RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : AForm(target, 72, 45) {}
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& r) : Form(r) {}
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& r) : AForm(r) {}
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& r)
 {
-	Form::operator=(r);
+	AForm::operator=(r);
 	return *this;
 }
 

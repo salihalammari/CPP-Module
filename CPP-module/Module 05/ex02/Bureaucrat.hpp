@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 23:20:04 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/03 23:20:05 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/06 05:07:01 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #define GRADE_MAX 1
 #define GRADE_MIN 150
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -30,19 +30,19 @@ private :
 
 public :
 	Bureaucrat(void);
-	Bureaucrat(const std::string name, int grade);
+	Bureaucrat(const std::string& name, int grade);
 	Bureaucrat(const Bureaucrat& b);
 	~Bureaucrat(void);
 	Bureaucrat& operator=(const Bureaucrat& b);
 
-	const std::string getName(void) const;
+	const std::string& getName(void) const;
 	int getGrade(void) const;
 	void incrementGrade(void);
 	void decrementGrade(void);
 
-	void signForm(Form& f) const;
+	void signForm(AForm& f) const;
 
-	void executeForm(const Form& f) const;
+	void executeForm(const AForm& f) const;
 
 	class GradeTooHighException : public std::exception
 	{
