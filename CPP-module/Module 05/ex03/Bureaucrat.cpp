@@ -6,12 +6,12 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 23:20:32 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/06 05:39:57 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/06 05:48:43 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(void) :_name("unnamed"), _grade(GRADE_MIN)
 {
@@ -69,7 +69,7 @@ void Bureaucrat::decrementGrade(void)
 	_grade++;
 }
 
-void Bureaucrat::signForm(AForm &f) const
+void Bureaucrat::signForm(Form &f) const
 {
 	try
 	{
@@ -83,7 +83,7 @@ void Bureaucrat::signForm(AForm &f) const
 	}
 }
 
-void Bureaucrat::executeForm(const AForm& f) const
+void Bureaucrat::executeForm(const Form& f) const
 {
 	try
 	{
