@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 05:23:41 by slammari          #+#    #+#             */
-/*   Updated: 2022/11/28 08:07:59 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/07 00:09:33 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Zombie* zombieHorde(int N, std::string name)
 {
     if (N <= 0)
 		return(NULL);
-	Zombie *zombie_horde = new Zombie[N];
+	Zombie *zombie_horde = new (std::nothrow) Zombie[N];
 	if (!zombie_horde)
 		return (NULL);
 	for(int i = 0; i < N ; i++)

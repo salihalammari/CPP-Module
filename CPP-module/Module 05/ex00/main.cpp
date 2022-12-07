@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 23:18:33 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/06 19:51:52 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/07 22:41:13 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,68 @@
 
 int main(void)
 {
+	Bureaucrat test_1("test_1", 1);
+	try
+	{
+		test_1.incrementGrade();
+		std::cout << "KO [1]" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "OK [1]" << std::endl;
+	}
+
+
+	Bureaucrat test_2("test_2", 2);
+	try
+	{
+		test_2.incrementGrade();
+		std::cout << "OK [2]" << std::endl;
+		
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "KO [2]" << std::endl;
+	}
+
+	Bureaucrat test_75("test_75", 75);
+	try
+	{
+		test_75.incrementGrade();
+		std::cout << "OK [75]" << std::endl;
+		
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "KO [75]" << std::endl;
+	}
+
+
+	Bureaucrat test_149("test_149", 149);
+	try
+	{
+		test_149.decrementGrade();
+		std::cout << "OK [149]" << std::endl;
+		
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "KO [149]" << std::endl;
+	}
+
+	Bureaucrat test_150("test_150", 150);
+	try
+	{
+		test_150.decrementGrade();
+		std::cout << "KO [150]" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "OK [150]" << std::endl;
+	}
+
+	return (0);
+
 	Bureaucrat b1("b1", 150);
 	Bureaucrat b2("b2", 1);
 	Bureaucrat b3("b3", 10);

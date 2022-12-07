@@ -6,13 +6,13 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 23:18:28 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/06 05:05:43 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/07 00:29:37 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form(void) : _name ("no_name"), _signed(false), _grade_sign(0), _grade_exec(0) {}
+Form::Form(void) : _name ("no_name"), _signed(false), _grade_sign(150), _grade_exec(150) {}
 
 Form::~Form(void) {}
 

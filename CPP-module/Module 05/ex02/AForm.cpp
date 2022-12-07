@@ -6,13 +6,13 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 23:19:57 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/06 20:08:27 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/07 01:39:11 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm(void) : _name(), _grade_sign(0), _grade_exec(0), _signed(false) {}
+AForm::AForm(void) : _name ("no_name"), _signed(false), _grade_sign(GRADE_MIN), _grade_exec(GRADE_MIN) {}
 
 AForm::~AForm(void) {}
 
