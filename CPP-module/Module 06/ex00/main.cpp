@@ -12,6 +12,7 @@
 
 #include "Convert.hpp"
 #include <sstream>
+
 void checkArg(std::string str)
 {
 	int dot = 0;

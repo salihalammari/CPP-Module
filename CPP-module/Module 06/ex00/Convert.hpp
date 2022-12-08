@@ -42,7 +42,7 @@ private :
 	std::string _floatErr;
 	std::string _doubleErr;
 
-public 
+public :
 	Convert(void);
 	Convert(const char* str);
 	Convert(const Convert& c);
