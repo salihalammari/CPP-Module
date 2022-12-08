@@ -6,60 +6,71 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 00:28:46 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/06 00:28:47 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/09 00:43:30 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Array.hpp"
+#ifndef ARRAY_HPP
+#define ARRAY_HPP
 
-#define MAX_VAL 750
-int main(int, char **)
+#include <exception>
+
+template <class T>
+class Array
 {
-	Array<int> numbers(MAX_VAL);
-	int *mirror = new int[MAX_VAL];
-	srand(time(NULL));
-	for (int i = 0; i < MAX_VAL; i++)
+private :
+	int _size;
+	T* _arr;
+public :
+	Array(void) : _size(0), _arr(new T[NULL]) {}
+	Array(unsigned int n) : _size(n), _arr(new T[n])
 	{
-		const int value = rand();
-		numbers[i] = value;
-		mirror[i] = value;
+		for (int i = 0 ; i < _size; i++)
+			_arr[i] = 0;
 	}
-	//SCOPE
+	Array(const Array& a) : _size(a._size), _arr(new T[a._size])
 	{
-		Array<int> tmp = numbers;
-		Array<int> test(tmp);
+		for (int i = 0 ; i < _size ; i++)
+			_arr[i] = a[i];
 	}
-
-	for (int i = 0; i < MAX_VAL; i++)
+	~Array(void)
 	{
-		if (mirror[i] != numbers[i])
+		delete[] _arr;
+		_arr = NULL;
+	}
+	Array& operator=(const Array& a)
+	{
+		if (this != &a)
 		{
-			std::cerr << "didn't save the same value!!" << std::endl;
-			return 1;
+			delete[] _arr;
+			_arr = NULL;
+			_size = a._size;
+			_arr = new T[_size];
+			for (int i = 0 ; i < _size ; i++)
+				_arr[i] = a[i];
 		}
+		return *this;
 	}
-	try
+	T& operator[](int idx)
 	{
-		numbers[-2] = 0;
+		if (idx < 0 || idx >= _size)
+			throw OutOfBoundException();
+		return _arr[idx];
 	}
-	catch (const std::exception &e)
+	const T& operator[](int idx) const
 	{
-		std::cerr << e.what() << '\n';
+		if (idx < 0 || idx >= _size)
+			throw Array::OutOfBoundException();
+		return _arr[idx];
 	}
-	try
+	class OutOfBoundException : public std::exception
 	{
-		numbers[MAX_VAL] = 0;
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	public:
+		const char* what(void) const throw()
+		{
+			return "Out of Bounds";
+		}
+	};
+};
 
-	for (int i = 0; i < MAX_VAL; i++)
-	{
-		numbers[i] = rand();
-	}
-	delete[] mirror;
-	return 0;
-}
+#endif

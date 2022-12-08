@@ -1,4 +1,4 @@
-NAME = Mutated_abomination
+NAME = Array
 CXX = c++
 RM = rm -rf
 
@@ -6,7 +6,7 @@ HEADERS = Array.hpp
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS =	main.cpp Array.cpp
+SRCS =	main.cpp
 
 OBJT = $(SRCS:.cpp=.o)
 all : $(NAME)

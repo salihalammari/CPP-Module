@@ -1,8 +1,8 @@
-NAME = Span
+NAME = iter
 CXX = c++
 RM = rm -rf
 
-HEADERS = inter.hpp 
+HEADERS = iter.hpp 
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 

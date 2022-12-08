@@ -6,7 +6,7 @@ HEADERS = Whatever.hpp
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS =	main.cpp  Whatever.cpp
+SRCS =	main.cpp
 
 OBJT = $(SRCS:.cpp=.o)
 all : $(NAME)
