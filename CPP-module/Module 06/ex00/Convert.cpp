@@ -16,8 +16,7 @@ Convert::Convert(void) {}
 
 Convert::~Convert(void) {}
 
-Convert::Convert(std::string str)
-	: _input(str), _charErr("\0"), _intErr("\0"), _floatErr("\0"), _doubleErr("\0")
+Convert::Convert(std::string str) : _input(str), _charErr("\0"), _intErr("\0"), _floatErr("\0"), _doubleErr("\0")
 {
 	setType();
 	switch (_type)
@@ -117,7 +116,7 @@ void Convert::toInt(void)
 
 void Convert::toDouble(void)
 {
-	_double = atof(_input.c_str());
+	_double = stof(_input);
 	_char = static_cast<char>(_double);
 	_int = static_cast<int>(_double);
 	_float = static_cast<float>(_double);

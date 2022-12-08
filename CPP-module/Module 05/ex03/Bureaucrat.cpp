@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 23:20:32 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/07 20:02:15 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/08 05:48:19 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,16 @@ int Bureaucrat::getGrade(void) const
 
 void Bureaucrat::incrementGrade(void)
 {
-	_grade--;
-	if (_grade < GRADE_MAX)
+	if (_grade - 1 < GRADE_MAX)
 		throw Bureaucrat::GradeTooHighException();
+	_grade--;
 }
 
 void Bureaucrat::decrementGrade(void)
 {
-	_grade++;
-	if (_grade > GRADE_MIN)
+	if (_grade + 1 > GRADE_MIN)
 		throw Bureaucrat::GradeTooLowException();
+	_grade++;
 }
 
 void Bureaucrat::signForm(Form &f) const

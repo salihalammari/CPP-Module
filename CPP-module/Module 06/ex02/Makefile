@@ -2,11 +2,11 @@ NAME =
 CXX = c++
 RM = rm -rf
 
-HEADERS = 
+HEADERS = A.hpp B.hpp C.hpp Base.hpp 
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS =	main.cpp 
+SRCS =	main.cpp A.cpp B.cpp C.cpp Base.cpp
 
 OBJT = $(SRCS:.cpp=.o)
 all : $(NAME)

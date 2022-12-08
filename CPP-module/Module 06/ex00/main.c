@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "Convert.hpp"
-#include <sstream>
-#include <iostream>
 
 void checkArg(std::string str)
 {

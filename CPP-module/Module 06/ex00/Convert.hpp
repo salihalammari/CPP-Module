@@ -14,10 +14,11 @@
 #define CONVERT_HPP
 
 #include <iostream>
-#include <string>
-#include <cctype>
-#include <cmath>
-#include <limits>
+// #include <string>
+#include <exception>
+// #include <cctype>
+// #include <cmath>
+// #include <limits>
 
 #define CHAR 0
 #define INT 1

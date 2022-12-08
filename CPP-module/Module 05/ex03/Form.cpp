@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 23:20:27 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/07 01:38:36 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/08 09:05:02 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ Form& Form::operator=(const Form& f)
 {
 	if (this != &f)
 	{
-		*const_cast<std::string*>(&_name) = f.getName();
-		*const_cast<int*>(&_grade_exec) = f.getGradeExec();
-		*const_cast<int*>(&_grade_sign) = f.getGradeSign();
+		const_cast<std::string&>(_name) = f.getName();
+		const_cast<int&>(_grade_exec) = f.getGradeExec();
+		const_cast<int&>(_grade_sign) = f.getGradeSign();
 		_signed = f.getSigned();
 	}
 	return *this;

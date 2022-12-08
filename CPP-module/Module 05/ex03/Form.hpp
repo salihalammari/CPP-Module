@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 23:20:30 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/07 01:38:43 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/08 09:05:21 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,3 @@ public :
 std::ostream& operator<<(std::ostream& os, const Form& f);
 
 #endif
-
-
