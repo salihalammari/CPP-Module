@@ -53,7 +53,7 @@ int main(int argc, char **argv)
 		checkArg(argv[1]);
 		std::stringstream ss;
 		ss.str(argv[1]);
-		Convert c(ss.str());
+		Convert c(ss.str().c_str());
 		if (c.getType() == INVALID)
 			throw Convert::InvalidArg();
 		c.print();

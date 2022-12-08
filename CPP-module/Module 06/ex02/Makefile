@@ -1,4 +1,4 @@
-NAME = 
+NAME = Identify_real_type
 CXX = c++
 RM = rm -rf
 

@@ -1,4 +1,4 @@
-NAME = 
+NAME = Serialization
 CXX = c++
 RM = rm -rf
 

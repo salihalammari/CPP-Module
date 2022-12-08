@@ -44,7 +44,7 @@ private :
 
 	Convert(void);
 public :
-	Convert(std::string str);
+	Convert(const char* str);
 	Convert(const Convert& c);
 	~Convert(void);
 	Convert& operator=(const Convert & c);

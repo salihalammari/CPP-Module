@@ -16,8 +16,11 @@ Convert::Convert(void) {}
 
 Convert::~Convert(void) {}
 
-Convert::Convert(std::string str) : _input(str), _charErr("\0"), _intErr("\0"), _floatErr("\0"), _doubleErr("\0")
+Convert::Convert(const char *str) : _charErr("\0"), _intErr("\0"), _floatErr("\0"), _doubleErr("\0")
 {
+	if (!str) 
+		throw std::invalid_argument("invalid input");
+	this->_input = str;
 	setType();
 	switch (_type)
 	{

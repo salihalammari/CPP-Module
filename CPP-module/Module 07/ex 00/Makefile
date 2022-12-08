@@ -1,0 +1,26 @@
+NAME = Easy_find
+CXX = c++
+RM = rm -rf
+
+HEADERS = Whatever.hpp 
+
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98
+
+SRCS =	main.cpp  Whatever.cpp
+
+OBJT = $(SRCS:.cpp=.o)
+all : $(NAME)
+
+$(NAME): $(OBJT)
+	$(CXX) $(CXXFLAGS) $(OBJT) -o $(NAME)
+
+%.o: %.cpp  $(HEADERS)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+clean:
+	$(RM) $(OBJT)
+fclean:
+	$(RM) $(OBJT) $(NAME)
+re:	fclean all
+
+.PHONY: all fclean clean re
