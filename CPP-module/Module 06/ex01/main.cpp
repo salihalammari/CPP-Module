@@ -14,11 +14,19 @@
 
 int main(void)
 {
-	Data *before = new Data("Kim", 21, 180);
+	Data data;
 
-	uintptr_t ptr = serialize(before);
-	Data *after = deserialize(ptr);
-	before->print();
-	after->print();
-	delete before;
+	data.i = 1337;
+	data.j = 42;
+	data.c = 'd';
+
+	std::cout << "--------- RESULT & CASTING --------" << std::endl;
+
+	uintptr_t holder = serialize(&data);
+	Data *dataReconv = deserialize(holder);
+	std::cout << dataReconv->i << std::endl;
+	std::cout << dataReconv->j << std::endl;
+	std::cout << dataReconv->c << std::endl;
+	
+	return 0;
 }

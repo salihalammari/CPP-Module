@@ -13,6 +13,11 @@
 #include "Convert.hpp"
 #include <sstream>
 
+bool is_digit(char c)
+{
+	return c >= '0' && c <= '9';
+}
+
 void checkArg(std::string str)
 {
 	int dot = 0;
@@ -38,7 +43,7 @@ void checkArg(std::string str)
 		}
 	}
 	if (str[++i] || dot > 1 || plus > 1 || minus > 1 || f > 2)
-		throw Convert::InvalidArg();
+		 throw Convert::InvalidArg();
 	if (plus && minus)
 		throw Convert::InvalidArg();
 	if (f == 2 && str.compare("inff") && str.compare("+inff") && str.compare("-inff"))
