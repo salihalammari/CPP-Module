@@ -11,17 +11,18 @@
 /* ************************************************************************** */
 
 #include "Convert.hpp"
-
+#include <sstream>
 void checkArg(std::string str)
 {
 	int dot = 0;
 	int plus = 0;
 	int minus = 0;
 	int f = 0;
+	int i = 0;
 
 	if (str.empty())
 		throw Convert::InvalidArg();
-	for (int i = 0; i < static_cast<int>(str.size()); i++)
+	for (i = 0; i < static_cast<int>(str.size()); i++)
 	{
 		if (str[i] == '.')
 			dot++;
@@ -30,9 +31,12 @@ void checkArg(std::string str)
 		else if (str[i] == '-')
 			minus++;
 		else if (str[i] == 'f')
+		{
 			f++;
+			break;
+		}
 	}
-	if (dot > 1 || plus > 1 || minus > 1 || f > 2)
+	if (str[++i] || dot > 1 || plus > 1 || minus > 1 || f > 2)
 		throw Convert::InvalidArg();
 	if (plus && minus)
 		throw Convert::InvalidArg();

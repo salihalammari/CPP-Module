@@ -14,7 +14,7 @@ all : $(NAME)
 $(NAME): $(OBJT)
 	$(CXX) $(CXXFLAGS) $(OBJT) -o $(NAME)
 
-%.o: %.cpp  $(HEADERS)
+%.o: %.cpp $(HEADERS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:

@@ -116,7 +116,7 @@ void Convert::toInt(void)
 
 void Convert::toDouble(void)
 {
-	_double = stof(_input);
+	_double = atof(_input.c_str());
 	_char = static_cast<char>(_double);
 	_int = static_cast<int>(_double);
 	_float = static_cast<float>(_double);
