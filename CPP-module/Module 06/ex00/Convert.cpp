@@ -202,3 +202,4 @@ const char* Convert::InvalidArg::what(void) const throw()
 {
 	return ("Error : Invalid Argument\nUsage : ./convert [ literal ]");
 }
+
