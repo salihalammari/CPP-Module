@@ -104,11 +104,11 @@ void Convert::toChar(void)
 
 void Convert::toInt(void)
 {
-	double temp;
+	int temp;
 
-	temp = atof(_input.c_str());
+	temp = atoi(_input.c_str());
 	_char = static_cast<char>(temp);
-	_int = static_cast<int>(temp);
+	_int = temp;
 	_float = static_cast<float>(temp);
 	_double = static_cast<double>(temp);
 	if (temp > std::numeric_limits<char>::max() || temp < std::numeric_limits<char>::min())
