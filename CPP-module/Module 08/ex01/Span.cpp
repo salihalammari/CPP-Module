@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:42:29 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/08 16:42:30 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/09 19:39:59 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,62 +16,58 @@ Span::Span(void) {}
 
 Span::~Span(void) {}
 
-Span::Span(const Span& s) : _v(s._v) {}
+Span::Span(const Span& s) : _vector(s._vector) {}
 
 Span::Span(unsigned int N)
 {
-	_v.reserve(N);
+	_vector.reserve(N);
 }
 
 Span& Span::operator=(const Span& s)
 {
 	if (this != &s)
 	{
-		_v = s._v;
+		_vector = s._vector;
 	}
 	return *this;
 }
 
 void Span::addNumber(int num)
 {
-	if (_v.size() == _v.capacity())
+	if (_vector.size() == _vector.capacity())
 		throw NoSpaceException();
-	_v.push_back(num);
+	_vector.push_back(num);
 }
 
 void Span::addNumber(std::vector<int>::iterator const &begin, std::vector<int>::iterator const &end)
 {
 	std::vector<int>::iterator iter = begin;
 
-	if (_v.size() == _v.capacity())
+	size_t diff = std::distance(begin, end);
+	if (_vector.size() + diff > _vector.capacity())
 		throw NoSpaceException();
 	while (iter != end)
 	{
-		_v.push_back(*iter);
-		if (_v.size() == _v.capacity())
-			break ;
+		_vector.push_back(*iter);
 		iter++;
 	}
 }
 
 int Span::longestSpan(void)
 {
-	if (_v.size() < 2)
+	if (_vector.size() < 2)
 		throw NotEnoughElementException();
-	return *std::max_element(_v.begin(), _v.end()) - *std::min_element(_v.begin(), _v.end());
+	return *std::max_element(_vector.begin(), _vector.end()) - *std::min_element(_vector.begin(), _vector.end());
 }
 
 int Span::shortestSpan(void)
 {
-	if (_v.size() < 2)
+	if (_vector.size() < 2)
 		throw NotEnoughElementException();
-	std::sort(_v.begin(), _v.end());
-	int s = _v[1] - _v[0];
-	for (size_t i = 0; i < _v.size() - 1; i++)
-	{
-		if (s > _v[i + 1] - _v[i])
-			s = _v[i + 1] - _v[i];
-	}
+	std::sort(_vector.begin(), _vector.end());
+	int s = _vector[1] - _vector[0];
+	for (size_t i = 0; i < _vector.size() - 1; i++)
+		s = std::min(s, _vector[i + 1] - _vector[i]);
 	return s;
 }
 

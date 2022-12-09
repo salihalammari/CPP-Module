@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:42:31 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/08 16:42:32 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/09 19:03:11 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@
 class Span
 {
 private :
-	std::vector<int> _v;
-
+	std::vector<int> _vector;
 public :
 	Span(void);
 	Span(unsigned int N);

@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:43:46 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/08 16:43:47 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/09 19:56:15 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@
 
 void test_list(void)
 {
-	std::list<int> lst;
-	lst.push_back(5);
-	lst.push_back(17);
-	std::cout << lst.back() << std::endl;
-	lst.pop_back();
-	std::cout << lst.size() << std::endl;
-	lst.push_back(3);
-	lst.push_back(5);
-	lst.push_back(737);
+	std::list<int> list;
+	list.push_back(5);
+	list.push_back(17);
+	std::cout << list.back() << std::endl;
+	list.pop_back();
+	std::cout << list.size() << std::endl;
+	list.push_back(3);
+	list.push_back(5);
+	list.push_back(737);
 	//[...]
-	lst.push_back(0);
-	std::list<int>::iterator lit = lst.begin();
-	std::list<int>::iterator lite = lst.end();
+	list.push_back(0);
+	std::list<int>::iterator lit = list.begin();
+	std::list<int>::iterator lite = list.end();
 	++lit;
 	--lit;
 	while (lit != lite)
@@ -37,7 +37,7 @@ void test_list(void)
 		std::cout << *lit << std::endl;
 		++lit;
 	}
-	std::list<int> l(lst);
+	std::list<int> l(list);
 }
 
 void test_iterator(void)
@@ -73,8 +73,8 @@ void test_const_iterator(void)
 	mstack.push(3.3);
 	mstack.push(4.4);
 	mstack.push(5.5);
-	MutantStack<double>::const_iterator cit = mstack.cbegin();
-	MutantStack<double>::const_iterator cite = mstack.cend();
+	MutantStack<double>::const_iterator cit = mstack.begin();
+	MutantStack<double>::const_iterator cite = mstack.end();
 	++cit;
 	--cit;
 	while (cit != cite)
@@ -111,8 +111,8 @@ void test_const_reverse_iterator(void)
 	mstack.push("WednesDay");
 	mstack.push("ThursDay");
 	mstack.push("FriDay");
-	MutantStack<std::string>::const_reverse_iterator crit = mstack.crbegin();
-	MutantStack<std::string>::const_reverse_iterator crite = mstack.crend();
+	MutantStack<std::string>::const_reverse_iterator crit = mstack.rbegin();
+	MutantStack<std::string>::const_reverse_iterator crite = mstack.rend();
 	++crit;
 	--crit;
 	while (crit != crite)
