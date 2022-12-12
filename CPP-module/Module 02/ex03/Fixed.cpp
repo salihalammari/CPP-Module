@@ -6,7 +6,7 @@
 /*   By: slammari <slammari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 05:07:24 by slammari          #+#    #+#             */
-/*   Updated: 2022/12/01 03:24:51 by slammari         ###   ########.fr       */
+/*   Updated: 2022/12/12 20:00:01 by slammari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,61 @@
 
 const int Fixed::n_bit = 8;
 
-Fixed::Fixed()
+Fixed::Fixed( void )
 {
-    this->value = 0;
+	this->value = 0;
 }
 
-Fixed::Fixed(const int i)
+Fixed::~Fixed( void )
 {
-    this->value = i << this->n_bit;
 }
 
-Fixed::Fixed(const float f)
+Fixed::Fixed(const Fixed& src)
 {
-    this->value = roundf(f * (1 << this->n_bit));
+	this->value = src.getRawBits();
 }
 
-Fixed::Fixed(const Fixed &copy)
+Fixed::Fixed(float src)
 {
-    *this = copy;
+	this->value = (int)roundf(src * (1 << n_bit));
 }
 
-Fixed::~Fixed(){}
+Fixed::Fixed(int src)
+{
+	this->value = src << n_bit;
+}
 
 Fixed &Fixed::operator=(const Fixed &src)
 {
-    if (this != &src)
-        this->value= src.getRawBits();
-    return (*this);
+	this->value = src.getRawBits();
+	return (*this);
 }
 
+std::ostream &operator<<(std::ostream &out, const Fixed &ref)
+{
+	out << ref.toFloat();
+	return out;
+}
+
+int Fixed::getRawBits( void ) const
+{
+	return (this->value);
+}
+
+void Fixed::setRawBits( int const raw )
+{
+	this->value = raw;
+}
+
+float Fixed::toFloat( void ) const
+{
+	return ((float)this->value / (1 << n_bit));
+}
+
+int Fixed::toInt( void ) const
+{
+	return (this->value > 0 ? 1 : -1)*(abs(this->value) >> n_bit);
+} 
 
 bool Fixed::operator>(const Fixed &src) const
 {
@@ -99,93 +125,65 @@ Fixed Fixed::operator*(const Fixed &src) const
 Fixed Fixed::operator/(const Fixed &src) const
 {
 	Fixed f;
-	f.setRawBits(((long long)this->value << n_bit) / src.value );
+	f.setRawBits(((long long)this->value << n_bit ) / src.value );
 	return (f);
 }
 
-Fixed Fixed::operator/(const Fixed &src) const
+Fixed& Fixed::operator++()
 {
-	Fixed f;
-	f.setRawBits(((long long)this->value << n_bit) / src.value );
-	return (f);
+	this->value++;
+	return (*this);
 }
 
-Fixed Fixed::operator++()
+Fixed& Fixed::operator--()
 {
-    this->value++;
-    return (*this);
-}
-
-Fixed Fixed::operator--()
-{
-    this->value--;
-    return (*this);
+	this->value--;
+	return (*this);
 }
 
 Fixed Fixed::operator++(int)
 {
-    Fixed copy = *this;
-    ++this->value;
-    return (copy);
+	Fixed temp(*this);
+	this->value++;
+	return (temp);
 }
 
 Fixed Fixed::operator--(int)
 {
-    Fixed copy = *this;
-    --this->value;
-    return (copy);
+	Fixed temp(*this);
+	this->value--;
+	return (temp);
 }
 
-int Fixed::getRawBits( void ) const{
-    return (this->value);
-}
-
-void Fixed::setRawBits( int const raw )
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
 {
-    this->value= raw;
+	if ((Fixed)a > (Fixed)b)
+		return (a);
+	else
+		return (b);
 }
 
-float Fixed::toFloat( void )const{
-    return ((float)this->value / (float)(1 << this->n_bit));
-}
-
-int Fixed::toInt( void )const{
-    return (this->value >> this->n_bit);
-}
-
-Fixed &Fixed::min(Fixed &first, Fixed &second)
+Fixed &Fixed::max(Fixed &a, Fixed &b)
 {
-    if (first.toFloat() >= second.toFloat())
-        return (second);
-    else
-        return (first);
+	if ((Fixed)a > (Fixed)b)
+		return (a);
+	else
+		return (b);
 }
 
-const Fixed &Fixed::min(const Fixed &first, const Fixed &second)
+
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
 {
-    if (first.toFloat() >= second.toFloat())
-        return (second);
-    else
-        return (first);
+	if ((Fixed)a < (Fixed)b)
+		return (a);
+	else
+		return (b);
 }
 
-Fixed &Fixed::max(Fixed &first, Fixed &second)
+Fixed &Fixed::min( Fixed &a, Fixed &b)
 {
-    if (first.toFloat() >= second.toFloat())
-        return (first);
-    else
-        return (second);
-}
-
-const Fixed &Fixed::max(const Fixed &first, const Fixed &second)
-{
-    if (first.toFloat() >= second.toFloat())
-        return (first);
-    else
-        return (second);
-}
-
-std::ostream &operator<<(std::ostream &o, Fixed const &fixed){
-    o << fixed.toFloat();
-    return (o);
+	if ((Fixed)a < (Fixed)b)
+		return (a);
+	else
+		return (b);
 }
